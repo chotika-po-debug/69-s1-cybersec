@@ -18,5 +18,9 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@chotika.com
       - PGADMIN_DEFAULT_PASSWORD=adminpass
+      volumes:
+      - data-admin:/var/lib/pgadmin
     depends_on:
       - db
+volumes:
+  data-admin:
