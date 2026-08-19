@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: 69-s1-db
+    ports:
+      - 54327:5432
+    environment:
+      - POSTGRES_PASSWORD=muunum@2801
+      - POSTGRES_USER=chotika
+      - POSTGRES_DB
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  db-admin:
+    image: dpage/pgadmin4:latest
+    container_name: 69-s1-db-admin
+    ports:
+      - 8081:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@chotika.com
+      - PGADMIN_DEFAULT_PASSWORD=adminpass
+      volumes:
+      - data-admin:/var/lib/pgadmin
+    depends_on:
+      - db
+volumes:
+  data-admin:
