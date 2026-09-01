@@ -2,7 +2,7 @@
 
 
 ##Signup
-GET http://localhost:9092/admin/auth/register-admin
+POST http://localhost:9092/admin/auth/register-admin
 content-type: application/json
 
 {
@@ -38,3 +38,43 @@ content-type: application/json
   "email": ""
 }
 ###
+
+### ==========================================
+### USER OPERATIONS
+### ==========================================
+
+#userRegister
+POST http://localhost:9092/api/auth/local/register
+Content-Type: application/json
+
+{
+  "username": "",
+  "email": "",
+  "password": ""
+}
+
+###
+
+#userLogin
+POST http://localhost:9092/api/auth/local
+Content-Type: application/json
+
+{
+  "identifier": "",
+  "password": ""
+}
+
+###
+
+GET http://localhost:9092/api/users/me
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+###
+
+##Admin/User Forgot Password
+POST http://localhost:9092/admin/forgot-password
+Content-Type: application/json
+
+{
+  "email": ""
+}
