@@ -31,11 +31,21 @@ Authorization:
 ###
 
 ##forgot
-GET http://localhost:9092/admin/auth/forgot-password
+POST http://localhost:9092/admin/forgot-password
 content-type: application/json
 
 {
   "email": ""
+}
+###
+
+##resetPassword (Admin)
+POST http://localhost:9092/admin/reset-password
+content-type: application/json
+
+{
+  "resetPasswordToken": "",
+  "password": ""
 }
 ###
 
@@ -77,4 +87,24 @@ Content-Type: application/json
 
 {
   "email": ""
+}
+###
+
+##userForgotPassword
+POST http://localhost:9092/api/auth/forgot-password
+Content-Type: application/json
+
+{
+  "email": ""
+}
+###
+
+##userResetPassword
+POST http://localhost:9092/api/auth/reset-password
+Content-Type: application/json
+
+{
+  "code": "",
+  "password": "",
+  "passwordConfirmation": ""
 }
