@@ -93,4 +93,131 @@ Content-Type: application/json
 ### 2.4 Profile
 GET http://localhost:9092/api/users/me
 Authorization: Bearer {{userLogin.response.body.jwt}}
+
+### ==========================================
+### CONTENT OPERATIONS
+### ==========================================
+
+## 3.Content
+
+### 3.1 Student
+
+#### 3.1.1 Create
+# @name createStudent
+POST http://localhost:9092/api/students
+Content-Type: application/json
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+{
+  "data": {
+    "name": "",
+    "mobile": "",
+    "cardId": ""
+  }
+}
+
+#### 3.1.2 List All
+GET http://localhost:9092/api/students
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+#### 3.1.3 List with ID
+GET http://localhost:9092/api/students/{{createStudent.response.body.data.id}}
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+#### 3.1.4 Update
+PUT http://localhost:9092/api/students/{{createStudent.response.body.data.id}}
+Content-Type: application/json
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+{
+  "data": {
+    "name": "",
+    "mobile": "",
+    "cardId": ""
+  }
+}
+
+#### 3.1.5 Delete
+DELETE http://localhost:9092/api/students/{{createStudent.response.body.data.id}}
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+### 3.2 Subject
+
+#### 3.2.1 Create
+# @name createSubject
+POST http://localhost:9092/api/subjects
+Content-Type: application/json
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+{
+  "data": {
+    "name": ""
+  }
+}
+
+#### 3.2.2 List All
+GET http://localhost:9092/api/subjects
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+#### 3.2.3 List with ID
+GET http://localhost:9092/api/subjects/{{createSubject.response.body.data.id}}
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+#### 3.2.4 Update
+PUT http://localhost:9092/api/subjects/{{createSubject.response.body.data.id}}
+Content-Type: application/json
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+{
+  "data": {
+    "name": ""
+  }
+}
+
+#### 3.2.5 Delete
+DELETE http://localhost:9092/api/subjects/{{createSubject.response.body.data.id}}
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+### 3.3 Teacher
+
+#### 3.3.1 Create
+# @name createTeacher
+POST http://localhost:9092/api/teachers
+Content-Type: application/json
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+{
+  "data": {
+    "name": "",
+    "email": "",
+    "department": "",
+    "subject": ""
+  }
+}
+
+#### 3.3.2 List All
+GET http://localhost:9092/api/teachers
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+#### 3.3.3 List with ID
+GET http://localhost:9092/api/teachers/{{createTeacher.response.body.data.id}}
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+#### 3.3.4 Update
+PUT http://localhost:9092/api/teachers/{{createTeacher.response.body.data.id}}
+Content-Type: application/json
+Authorization: Bearer {{userLogin.response.body.jwt}}
+
+{
+  "data": {
+    "name": "",
+    "email": "",
+    "department": "",
+    "subject": ""
+  }
+}
+
+#### 3.3.5 Delete
+DELETE http://localhost:9092/api/teachers/{{createTeacher.response.body.data.id}}
+Authorization: Bearer {{userLogin.response.body.jwt}}
 ###
